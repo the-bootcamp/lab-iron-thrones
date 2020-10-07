@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AllEpisodes from "./Components/AllEpisodes";
+import Seasons from "./Components/Seasons";
+import { getAllEpisodes } from "./services";
+import Details from "./Components/Details";
+import Search from "./Components/Search";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    allEpisodes: [],
+  };
+
+  componentDidMount = () => {
+    this.fetchData();
+  };
+
+  fetchData = async () => {
+    try {
+      const allEpisodes = await getAllEpisodes();
+      this.setState({
+        allEpisodes,
+      });
+    } catch (error) {
+      console.log(`Error setting state allEpisodes `, error);
+    }
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Game of Thrones Directory</h1>
+        <Router>
+          {/* <Link to="/">Home</Link> */}
+          <Link to="/">All Episodes</Link>
+          <Link to="/seasons">Seasons</Link>
+          <Link to="/search">Search Episodes</Link>
+
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => <AllEpisodes episodes={this.state.allEpisodes} />}
+            ></Route>
+            <Route
+              exact
+              path="/seasons"
+              render={() => <Seasons episodes={this.state.allEpisodes} />}
+            ></Route>{" "}
+            <Route exact path="/details/:details" component={Details}></Route>
+            <Route
+              exact
+              path="/search"
+              render={() => <Search episodes={this.state.allEpisodes} />}
+            ></Route>{" "}
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
