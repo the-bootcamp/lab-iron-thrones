@@ -4,7 +4,14 @@ const service = axios.create({
     baseURL: 'https://got-mock-api.herokuapp.com/episodes' 
 });
 
-export const getAllEpisodes = () => {
-    return http.get('/episodes')
-        .then(response => response.data)
-}
+export const getAllEpisodes = async () => {
+    try {
+      const response = await axios.get(
+        "https://got-mock-api.herokuapp.com/episodes"
+      );
+      const allEpisodesResponse = response.data;
+      return allEpisodesResponse;
+    } catch (error) {
+      return console.log(`Error while getting all episodes `, error);
+    }
+  };

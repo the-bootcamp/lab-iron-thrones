@@ -17,7 +17,7 @@ function Search(props) {
                 value={props.search}
                 onChange={handleChange}
                 className='form-control'
-                placeholder='Search a beer here'
+                placeholder='Search a episode here'
             />
         </div>
     )

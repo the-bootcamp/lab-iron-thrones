@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css'
+import './Home.css';
+import NavBar from '../NavBar/NavBar';
 
 function Home () {
     return (
         <>
+        <NavBar/>
             <div className="all-containers">
                 <div>
                     <img src="./images/GOT_1.jpeg " alt="episodes" />
