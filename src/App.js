@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Game of Thrones Directory</h1>
+        <img className="logo" src="/thrones-logo.png" alt="thrones-logo" />
         <Router>
           {/* <Link to="/">Home</Link> */}
           <Link to="/">All Episodes</Link>
