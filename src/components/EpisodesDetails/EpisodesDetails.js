@@ -28,8 +28,8 @@ export default class EpisodeDetails extends React.Component {
 
     return (
       <>
-        <div className='row mb-3'>
-          <div className='col-xs-12 col-sm-4'>
+        <div className='row mb-3 mt-3'>
+          <div className='col-xs-12 col-sm-4 mt-3'>
             <img src={image} className='imf-fluid' alt={episode.name} />
           </div>
           <div className='col-xs-12 col-sm-8'>
