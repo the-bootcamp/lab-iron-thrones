@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const episodeDetails = (props) => {
-  console.log(props);
   const reqID = props.match.params.id;
   const reqEpisode = props.episodes.filter((ep) => ep.id === parseInt(reqID));
-  console.log(reqEpisode[0]);
+
   return (
     <div className="container">
       <div className="row">

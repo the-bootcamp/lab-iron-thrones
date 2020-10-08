@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./AllEpisodes.css";
 
 const allEpisodes = (props) => {
-  console.log(props);
   return (
     <div className="card-group d-flex flex-row  flex-wrap justify-content-around">
       {props.episodes.map((episode) => {

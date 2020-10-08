@@ -16,7 +16,7 @@ class App extends Component {
   fetchData = () => {
     getAllGOTEpisodes()
       .then((gotEpisodes) => {
-        console.log("componenet did mount: ", gotEpisodes);
+        // console.log("componenet did mount: ", gotEpisodes);
         this.setState({ gotEpisodes });
       })
       .catch((error) => console.log(error));
@@ -31,24 +31,16 @@ class App extends Component {
     });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.srchKey != this.state.srchKey) {
-      console.log("componentDidUpdate-: prevkey: ", prevState.srchKey);
-      console.log("componentDidUpdate- : current key: ", this.state.srchKey);
-
-      let tempList = this.state.gotEpisodes;
-      tempList = tempList.filter((ele) =>
-        ele.name
-          .toLowerCase()
-          .trim()
-          .includes(this.state.srchKey.toLowerCase().trim())
-      );
-      console.log(tempList);
-    }
-  }
-
   render = () => {
-    console.log("app.js=> render", this.state.gotEpisodes);
+    let tempList = this.state.gotEpisodes;
+    tempList = tempList.filter((ele) =>
+      ele.name
+        .toLowerCase()
+        .trim()
+        .includes(this.state.srchKey.toLowerCase().trim())
+    );
+
+    // console.log("app.js=> render", this.state.gotEpisodes);
     return (
       <div className="App">
         <BrowserRouter>
@@ -99,7 +91,7 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <AllEpisodes episodes={this.state.gotEpisodes} />}
+            render={() => <AllEpisodes episodes={tempList} />}
           />
 
           <Route
@@ -113,14 +105,12 @@ class App extends Component {
           <Route
             exact
             path="/seasons"
-            render={() => <Seasons episodes={this.state.gotEpisodes} />}
+            render={() => <Seasons episodes={tempList} />}
           />
           <Route
             exact
             path="/season/:id"
-            render={(props) => (
-              <Seasons {...props} episodes={this.state.gotEpisodes} />
-            )}
+            render={(props) => <Seasons {...props} episodes={tempList} />}
           />
         </BrowserRouter>
       </div>

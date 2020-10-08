@@ -31,7 +31,6 @@ const Seasons = (props) => {
   const seasonEpisodes = episodes.filter(
     (episode) => episode.season === parseInt(reqSeasaon)
   );
-  console.log(seasonEpisodes);
 
   return (
     <div>
