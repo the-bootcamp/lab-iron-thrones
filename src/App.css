@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #121313;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +41,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.card {
+  margin: 5px auto;
+  width: 90%;
+  height: auto;
+  padding: 5%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(15, 15, 15);
+}
+
+.card img {
+  width: 90%;
+  height: auto;
+}
+
+h3 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.episode-details {
+  width: 80%;
+}
+
+.episode {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+a,
+input {
+  background-color: white;
+  width: 50%;
+  margin: 3px auto;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  margin: 10px auto;
+}
+
+.logo {
+  width: 80%;
+  height: auto;
+  margin: 20px auto;
+}
+
+.air-date {
+  margin: 20px auto;
+}
+
+.container {
+  min-height: 70vh;
 }
