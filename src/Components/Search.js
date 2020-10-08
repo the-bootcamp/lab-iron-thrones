@@ -31,8 +31,8 @@ export default class Search extends Component {
   render() {
     const results = this.state.results;
     return (
-      <div>
-        <h1>Search</h1>
+      <div className="container">
+        <h3>Search</h3>
         <div className="control">
           <input
             className="input is-primary"
@@ -47,10 +47,13 @@ export default class Search extends Component {
           {results.map((episode) => (
             <div className="card" key={episode.id}>
               <img src={episode.image.medium} alt={episode.name} />
-              <div className="episodeDetails">
-                <div>Season: {episode.season}</div>
-                <div>Episode: {episode.number}</div>
-                <div>{episode.name}</div>
+              <div className="episode-details">
+                <h2>{episode.name}</h2>
+                <div className="episode">
+                  <strong>Season:</strong> {episode.season}
+                  <strong>Episode:</strong> {episode.number}
+                </div>
+
                 <Link to={`/details/${episode.id}`}>Details</Link>
               </div>
             </div>

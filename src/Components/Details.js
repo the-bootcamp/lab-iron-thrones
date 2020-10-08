@@ -33,15 +33,23 @@ class Details extends React.Component {
 
   render() {
     const details = this.state.details;
+
     return (
-      <div>
-        <div>{details.name}</div>
-        <div>Episode: {details.number}</div>
-        <div>Season: {details.season}</div>
-        <div>Summary: {details.summary}</div>
-        <div>Original Air Date: {details.airdate}</div>
-        <div>Original Air Date: {details.airdate}</div>
-        <Link to="/allepisodes">Back</Link>{" "}
+      <div className="container">
+        <div className="card">
+          <div className="episode-details">
+            <h2>{details.name}</h2>
+            <div className="episode">
+              <strong>Season:</strong> {details.season}
+              <strong>Episode:</strong> {details.number}
+            </div>
+            <div>
+              <h3>Summary</h3>
+              <p>{details.summary}</p>
+            </div>
+            <div className="air-date">Original Air Date: {details.airdate}</div>
+          </div>
+        </div>
       </div>
     );
   }

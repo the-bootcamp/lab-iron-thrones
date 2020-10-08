@@ -29,8 +29,9 @@ export default class Seasons extends React.Component {
     const results = this.state.results;
 
     return (
-      <div>
-        <h1>Seasons</h1>
+      <div className="container">
+        <h3>Seasons</h3>
+
         <div>
           <button onClick={this.handleOnClick}>1</button>
           <button onClick={this.handleOnClick}>2</button>
@@ -46,10 +47,13 @@ export default class Seasons extends React.Component {
           {results.map((episode) => (
             <div className="card" key={episode.id}>
               <img src={episode.image.medium} alt={episode.name} />
-              <div className="episodeDetails">
-                <div>Season: {episode.season}</div>
-                <div>Episode: {episode.number}</div>
-                <div>{episode.name}</div>
+              <div className="episode-details">
+                <h2>{episode.name}</h2>
+                <div className="episode">
+                  <strong>Season:</strong> {episode.season}
+                  <strong>Episode:</strong> {episode.number}
+                </div>
+
                 <Link to={`/details/${episode.id}`}>Details</Link>
               </div>
             </div>

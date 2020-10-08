@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+
 export default function AllEpisodes(props) {
   return (
-    <div>
-      <h1>All Episodes</h1>
+    <div className="container">
+      <h3>All Episodes</h3>
       <div>
         {props.episodes.map((episode) => (
           <div className="card" key={episode.id}>
             <img src={episode.image.medium} alt={episode.name} />
-            <div className="episodeDetails">
-              <h3>{episode.name}</h3>
+            <div className="episode-details">
+              <h2>{episode.name}</h2>
               <div className="episode">
                 <strong>Season:</strong> {episode.season}
                 <strong>Episode:</strong> {episode.number}
