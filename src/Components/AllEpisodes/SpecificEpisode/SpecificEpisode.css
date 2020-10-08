@@ -1,0 +1,10 @@
+.specificEpisode-img {
+    width: 200px;
+    padding: 30px;
+}
+
+ .specificEpisode-container-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} 
