@@ -3,18 +3,25 @@ import { Link } from "react-router-dom";
 export default class Seasons extends React.Component {
   state = {
     results: [],
-    seasonNumber: 0,
+    seasonNumber: 1,
   };
+  handleChange = this.handleChange.bind(this);
 
-  handleOnClick = (event) => {
-    this.setState(
-      {
-        seasonNumber: parseInt(event.target.innerText),
-      },
-      () => {
-        this.searchEpisodes();
-      }
-    );
+  // handleOnClick = (event) => {
+  //   this.setState(
+  //     {
+  //       seasonNumber: parseInt(event.target.innerText),
+  //     },
+  //     () => {
+  //       this.searchEpisodes();
+  //     }
+  //   );
+  // };
+
+  componentDidMount = () => {
+    this.setState({ seasonNumber: 1 }, () => {
+      this.searchEpisodes();
+    });
   };
 
   searchEpisodes = () => {
@@ -25,14 +32,20 @@ export default class Seasons extends React.Component {
     });
   };
 
+  handleChange(event) {
+    this.setState({ seasonNumber: parseInt(event.target.value) }, () => {
+      this.searchEpisodes();
+    });
+  }
+
   render() {
     const results = this.state.results;
 
     return (
       <div className="container">
-        <h3>Seasons</h3>
+        <h3>Season</h3>
 
-        <div>
+        {/* <div>
           <button onClick={this.handleOnClick}>1</button>
           <button onClick={this.handleOnClick}>2</button>
           <button onClick={this.handleOnClick}>3</button>
@@ -41,7 +54,22 @@ export default class Seasons extends React.Component {
           <button onClick={this.handleOnClick}>6</button>
           <button onClick={this.handleOnClick}>7</button>
           <button onClick={this.handleOnClick}>8</button>
-        </div>
+        </div> */}
+
+        <form>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option default value="1">
+              1
+            </option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </form>
 
         <div>
           {results.map((episode) => (

@@ -33,14 +33,14 @@ class App extends React.Component {
         <img className="logo" src="/thrones-logo.png" alt="thrones-logo" />
         <Router>
           {/* <Link to="/">Home</Link> */}
-          <Link to="/">All Episodes</Link>
+          <Link to="/allepisodes">All Episodes</Link>
           <Link to="/seasons">Seasons</Link>
           <Link to="/search">Search Episodes</Link>
 
           <Switch>
             <Route
               exact
-              path="/"
+              path="/allepisodes"
               render={() => <AllEpisodes episodes={this.state.allEpisodes} />}
             ></Route>
             <Route
